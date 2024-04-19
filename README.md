@@ -1,0 +1,2 @@
+# typeshit
+gambling projekt
