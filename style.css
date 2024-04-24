@@ -1,0 +1,50 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.title {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.school {
+    text-align: center;
+}
+
+.bet-box {
+    margin-top: 10px;
+}
+
+.bet-input {
+    width: 100px;
+}
+
+.bet-btn {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.odds {
+    font-weight: bold;
+}
+
+#start-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
