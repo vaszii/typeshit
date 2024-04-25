@@ -2,9 +2,22 @@ body {
     background-color: lightblue;
     font-family: Arial, sans-serif;
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .title {
+    font-size: 50px;
+}
+
+.welcometitle {
+    margin-top: 60px;
+    font-weight: bold;
+    font-size: 30px;
     text-align: center;
 }
 
@@ -50,14 +63,35 @@ body {
     font-size: 20px;
 }
 
-.title{
-    font-size: 50px;
+.divider {
+    width: 100%;
+    border: 1px solid #004080;
+    margin: 20px 0;
 }
 
-
-.welcometitle{
-    margin-top: 60px;
-    font-weight: bold;
-    font-size: 30px;
+.balance-section {
+    background-color: black;
+    color: white;
+    width: 100%;
     text-align: center;
+}
+
+.balance {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.results {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.results h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.results-container {
+    font-size: 20px;
 }
