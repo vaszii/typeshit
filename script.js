@@ -20,11 +20,17 @@ window.onload = function() {
 
 function startGame() {
     let result = Math.floor(Math.random() * 6); // Random eredmény generálása 0 és 5 között
-    let odds1 = Math.random() * 9 + 1; // Az odds generálása 1 és 10 között
-    let odds2 = Math.random() * 9 + 1; // Az odds generálása 1 és 10 között
+    let odds1 = parseFloat(document.querySelector("#odds1").innerText); // Az odds kiolvasása
+    let odds2 = parseFloat(document.querySelector("#odds2").innerText); // Az odds kiolvasása
 
     let totalBet1 = parseFloat(document.querySelectorAll(".school")[0].querySelector(".bet-input").value);
     let totalBet2 = parseFloat(document.querySelectorAll(".school")[1].querySelector(".bet-input").value);
+
+    // Ellenőrzés, hogy a tét mezők érvényes számokat tartalmaznak-e
+    if (isNaN(totalBet1) || isNaN(totalBet2)) {
+        alert("Kérlek, add meg a fogadási tétek érvényes számokként!");
+        return;
+    }
 
     let winnings1 = 0;
     let winnings2 = 0;
@@ -36,15 +42,25 @@ function startGame() {
 
     let resultMsg = "<p>";
     if (winnings1 > winnings2) {
-        resultMsg += "Nyertél! Nyeremény: " + winnings1.toFixed(2);
+        resultMsg += "Nyertél! Nyeremény: " + winnings1.toFixed(2) + " Ft";
     } else if (winnings2 > winnings1) {
-        resultMsg += "Nyertél! Nyeremény: " + winnings2.toFixed(2);
+        resultMsg += "Nyertél! Nyeremény: " + winnings2.toFixed(2) + " Ft";
     } else {
         resultMsg += "Vesztettél!";
     }
     resultMsg += "</p>";
 
-    document.body.innerHTML += resultMsg;
+    // Eredmények megjelenítése
+    let resultsContainer = document.getElementById("results-container");
+    resultsContainer.innerHTML += "<p>Eredmény: " + result + " - " + (5 - result) + "</p>";
+    resultsContainer.innerHTML += resultMsg;
+
+    // Egyenleg frissítése
+    let balance = document.getElementById("balance");
+    let currentBalance = parseFloat(balance.innerText);
+    currentBalance += winnings1 + winnings2 - (totalBet1 + totalBet2);
+    balance.innerText = currentBalance.toFixed(2);
+
     document.getElementById("reset-btn").style.display = "block";
 }
 
