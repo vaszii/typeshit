@@ -9,21 +9,28 @@
 </head>
 <body>
     <h1 class="title">Tippmix</h1>
-    <p class="welcometitle">Üdvözöllek! Ez egy sportfogadási oldal, ahol a Berze és a Bottyán csapatainak mérkőzéseire tudsz fogadni.</p>
+    <p class="welcometitle">Üdvözöllek! Ez egy sportfogadási oldal, ahol a Bottyán és a Berze csapatainak mérkőzéseire tudsz fogadni.</p>
     <div class="container">
+        <div class="vbjpic">
+            <img src="./vbjlogo.jpg" alt="VBJ" class="vbjpiccss">
+        </div>
+        
         <div class="school">
             <p>VBJ</p>
             <div class="bet-box">
-                <input type="text" class="bet-input" placeholder="Tét (FT)">
+                <input type="number" class="bet-input" placeholder="Tét (FT)">
             </div>
             <p class="odds">Odds: <span id="odds1"></span></p>
         </div>
         <div class="school">
             <p>Berze</p>
             <div class="bet-box">
-                <input type="text" class="bet-input" placeholder="Tét (FT)">
+                <input type="number" class="bet-input" placeholder="Tét (FT)">
             </div>
             <p class="odds">Odds: <span id="odds2"></span></p>
+        </div>
+        <div class="berzepic">
+            <img src="./berzelogo.png" alt="Berze" class="vbjpiccss">
         </div>
     </div>
     <button id="start-btn" onclick="startGame()">Kezdés</button>
