@@ -26,28 +26,23 @@ function startGame() {
     let odds1 = parseFloat(document.querySelector("#odds1").innerText); // Az odds kiolvasása
     let odds2 = parseFloat(document.querySelector("#odds2").innerText); // Az odds kiolvasása
 
-    let totalBet1 = parseFloat(document.querySelectorAll(".school")[0].querySelector(".bet-input").value);
-    let totalBet2 = parseFloat(document.querySelectorAll(".school")[1].querySelector(".bet-input").value);
-
-    // Ellenőrzés, hogy a tét mezők érvényes számokat tartalmaznak-e
-    if (isNaN(totalBet1) || isNaN(totalBet2)) {
-        alert("Kérlek, add meg a fogadási tétek érvényes számokként!");
-        return;
-    }
+    let totalBet1 = parseFloat(document.querySelectorAll(".bet-box input")[0].value);
+    let totalBet2 = parseFloat(document.querySelectorAll(".bet-box input")[1].value);
 
     let winnings1 = 0;
     let winnings2 = 0;
 
-    if (result < 3) {
-        winnings1 = totalBet1 * odds1;
-        winnings2 = totalBet2 * odds2;
+    if (result > 2) {
+        if (totalBet1 > totalBet2) {
+            winnings1 = totalBet1 * odds1;
+        } else if (totalBet2 > totalBet1) {
+            winnings2 = totalBet2 * odds2;
+        }
     }
 
     let resultMsg = "<p>";
-    if (winnings1 > winnings2) {
-        resultMsg += "Nyertél! Nyeremény: " + winnings1.toFixed(2) + " Ft";
-    } else if (winnings2 > winnings1) {
-        resultMsg += "Nyertél! Nyeremény: " + winnings2.toFixed(2) + " Ft";
+    if (result > 2) {
+        resultMsg += "Nyertél! Nyeremény: " + (winnings1 + winnings2).toFixed(2) + " Ft";
     } else {
         resultMsg += "Vesztettél!";
     }
@@ -61,7 +56,8 @@ function startGame() {
     // Egyenleg frissítése
     let balance = document.getElementById("balance");
     let currentBalance = parseFloat(balance.innerText);
-    currentBalance += winnings1 + winnings2 - (totalBet1 + totalBet2);
+    currentBalance -= totalBet1 + totalBet2; // A fogadott összegek levonása
+    currentBalance += winnings1 + winnings2; // A nyeremények hozzáadása
     balance.innerText = currentBalance.toFixed(2);
 
     document.getElementById("reset-btn").style.display = "block";
