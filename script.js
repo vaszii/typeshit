@@ -8,8 +8,11 @@ window.onload = function() {
         ageAlert.style.left = "50%";
         ageAlert.style.transform = "translate(-50%, -50%)";
         ageAlert.style.backgroundColor = "white";
-        ageAlert.style.padding = "20px";
-        ageAlert.style.border = "2px solid black";
+        ageAlert.style.padding = "200px 300px";
+        ageAlert.style.border = "5px solid black";
+        ageAlert.style.fontSize = "25px";
+        ageAlert.style.textAlign = "center";
+        ageAlert.style.fontWeight = "bold";
         document.body.appendChild(ageAlert);
     } else {
         placeBet(1);
