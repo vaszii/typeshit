@@ -41,8 +41,10 @@ function startGame() {
     }
 
     let resultMsg = "<p>";
-    if (result > 2) {
-        resultMsg += "Nyertél! Nyeremény: " + (winnings1 + winnings2).toFixed(2) + " Ft";
+    if (winnings1 > winnings2) {
+        resultMsg += "Nyertél! Nyeremény: " + winnings1.toFixed(2) + " Ft";
+    } else if (winnings2 > winnings1) {
+        resultMsg += "Nyertél! Nyeremény: " + winnings2.toFixed(2) + " Ft";
     } else {
         resultMsg += "Vesztettél!";
     }
