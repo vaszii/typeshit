@@ -71,7 +71,7 @@ body {
 }
 
 
-.balance-section {
+/* .balance-section {
     background-color: black;
     color: white;
     width: 100%;
@@ -83,7 +83,7 @@ body {
 .balance {
     font-weight: bold;
     font-size: 25px;
-}
+} */
 
 
 .results {
@@ -99,6 +99,11 @@ body {
 
 .results-container {
     font-size: 20px;
+}
+
+.results-container p {
+    font-size: 22px;
+    font-weight: bold;
 }
 
 p.balance {
