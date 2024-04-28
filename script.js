@@ -22,7 +22,8 @@ window.onload = function() {
 }
 
 function startGame() {
-    let result = Math.floor(Math.random() * 6); // Random eredmény generálása 0 és 5 között
+    let result1 = Math.floor(Math.random() * 6) + 1; // VBJ eredménye
+    let result2 = Math.floor(Math.random() * 6) + 1; // Berze eredménye
     let odds1 = parseFloat(document.querySelector("#odds1").innerText); // Az odds kiolvasása
     let odds2 = parseFloat(document.querySelector("#odds2").innerText); // Az odds kiolvasása
 
@@ -32,12 +33,10 @@ function startGame() {
     let winnings1 = 0;
     let winnings2 = 0;
 
-    if (result > 2) {
-        if (totalBet1 > totalBet2) {
-            winnings1 = totalBet1 * odds1;
-        } else if (totalBet2 > totalBet1) {
-            winnings2 = totalBet2 * odds2;
-        }
+    if (result1 > result2) {
+        winnings1 = totalBet1 * odds1;
+    } else if (result2 > result1) {
+        winnings2 = totalBet2 * odds2;
     }
 
     let resultMsg = "<p>";
@@ -52,7 +51,9 @@ function startGame() {
 
     // Eredmények megjelenítése
     let resultsContainer = document.getElementById("results-container");
-    resultsContainer.innerHTML += "<p>Eredmény: " + result + " - " + (5 - result) + "</p>";
+    resultsContainer.style.fontWeight = "bold";
+    resultsContainer.style.fontSize = "20px";
+    resultsContainer.innerHTML += "<p>Eredmény: " + result1 + " - " + result2 + "</p>";
     resultsContainer.innerHTML += resultMsg;
 
     // Egyenleg frissítése
@@ -64,6 +65,7 @@ function startGame() {
 
     document.getElementById("reset-btn").style.display = "block";
 }
+
 
 function placeBet(school) {
     let odds = Math.random() * 9 + 1; // Véletlenszerű odds generálása 1 és 10 között
